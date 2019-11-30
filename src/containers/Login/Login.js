@@ -1,24 +1,34 @@
-import React, { useState, useCallback } from "react";
-import { useDispatch } from "react-redux";
-
-import { LoginDecoration } from '../../Pages/Login/Decoration/Decoration';
-import { LoginForm } from '../../Pages/Login/Form/Form';
+import React, { useState, useCallback, useEffect, Suspense, lazy } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from 'react-router-dom';
 
 import { dreamloPublicCode, dreamloPrivateCode  } from "../../store/login/action";
+import { getDreamloData  } from "../../store/dreamlo_api/action";
 
 import {
     Wrapper
 } from './style.js';
 
+const LoginDecoration = lazy(() => import('../../components/Login/Decoration/Decoration'));
+const LoginForm = lazy(() => import('../../components/Login/Form/Form'));
+
 /*
 * Login State Component
 */
-
-export const Login = () => {
+const Login = () => {
+    const store_content = useSelector(state => state);
     const dispatch = useDispatch();
 
     const [public_code, setPublicCode] = useState("");
     const [private_code, setPrivateCode] = useState("");
+    const [user, setUser] = useState(false);
+
+    useEffect( () => {
+        if(store_content.dreamlo_keys.private_code !== null){
+            setUser(true);
+        }
+
+    }, [store_content]);
 
     const onChangePublic = useCallback(e => {
         setPublicCode(e.target.value);
@@ -36,20 +46,30 @@ export const Login = () => {
         event.preventDefault();
         dispatch(dreamloPublicCode(public_code));
         dispatch(dreamloPrivateCode(private_code));
+        dispatch(getDreamloData(dispatch));
     };
+
+    if(user){
+        return <Redirect to='/dashboard' />
+    }
 
     return (
         <Wrapper>
-            <LoginDecoration />
-            <LoginForm
-                publicVal={public_code}
-                privateVal={private_code}
-                onChangePublic={onChangePublic}
-                onChangePrivate={onChangePrivate}
-                onEnter={onEnter}
-                onSubmit={onSubmit}
-            />
+            <Suspense fallback={<div>Loading...</div>}>
+                <LoginDecoration />
+
+                <LoginForm
+                    publicVal={public_code}
+                    privateVal={private_code}
+                    onChangePublic={onChangePublic}
+                    onChangePrivate={onChangePrivate}
+                    onEnter={onEnter}
+                    onSubmit={onSubmit}
+                />
+            </Suspense>
         </Wrapper>
     );
 }
+
+export default Login;
 

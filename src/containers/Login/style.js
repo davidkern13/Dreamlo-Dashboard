@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import media from '../../MediaQuery/index';
+import media from '../../style/MediaQuery/index';
 
 export const Wrapper = styled.div`
     max-width: 820px;

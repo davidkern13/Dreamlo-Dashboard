@@ -7,10 +7,21 @@ export const FormLogin = styled.div`
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    padding:0px 20px;
+    background-color: #FDFFFD;
+    border-left: 1px solid #EDEDED;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 `
 
+export const Wrap = styled.div`
+    display: flex;
+    justify-content: end;
+    flex-direction: row;
+`
+
+
 export const Form = styled.form`
-    padding:0px 20px;
     display: flex;
     flex-direction: column;
 `
@@ -25,7 +36,7 @@ export const Input = styled.input`
     padding: 0px 0px 0px 15px;
     
     :focus {
-        border:1px solid #8A6FEE;
+        border:1px solid #006CFF;
     } 
     
 `
@@ -44,15 +55,16 @@ export const Button = styled.button`
     height:40px;
     cursor: pointer;
     border-radius:100px;
-    color:#8A6FEE;
+    color:#006CFF;
     outline: none;
     background-color: transparent;
-    border:1px solid #8A6FEE;
-    margin:50px 0px 50px 0px; 
-    
+    border:1px solid #006CFF;
+    margin: 30px 0px 30px 0px;
+    transition: all 0.2s;
+     
     :hover {
         color:#fff;
-        background-color:#8A6FEE;
+        background-color:#006CFF;
     } 
 `
 export const Message = styled.p`
@@ -60,4 +72,20 @@ export const Message = styled.p`
   text-align: center;
   color: #ABB3CA;
   font-weight: 400;
+`;
+
+export const TitleLogin = styled.h1`
+  font-size: 2em;
+  color: #026BFF;
+  font-weight: 500;
+  margin: 0px 0px 10px 15px;
+  font-family: Calistoga;
+`;
+
+export const TitleTo = styled.h1`
+  font-size: 1em;
+  text-align: left;
+  color: #026BFF;
+  font-weight: 500;
+  font-family: Calistoga;
 `;

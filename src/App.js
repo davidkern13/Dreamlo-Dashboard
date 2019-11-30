@@ -1,16 +1,15 @@
 import React from "react";
 
-import "./App.css";
+import "./style/App.css";
 import styled from 'styled-components';
 
-import {Login} from './Components/Login/Login';
+import CustomRoute from './routes/CustomRoutes';
 
 export default function App() {
 
   return (
      <AppStyle>
-        <Login />
-
+         <CustomRoute />
      </AppStyle>
   );
 }

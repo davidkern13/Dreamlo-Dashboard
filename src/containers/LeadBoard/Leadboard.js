@@ -1,9 +1,11 @@
 import React from 'react';
 
-export const index = () => {
+function Leadboard(){
     return (
         <div>
-            Leadboard
+            lead
         </div>
     )
 }
+
+export default Leadboard;

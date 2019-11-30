@@ -9,9 +9,9 @@ export const Decoration = styled.div`
     text-align: center;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    background: url(https://images.unsplash.com/photo-1443304895043-ef30921332c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+    background: url(https://assets.materialup.com/uploads/136b09b5-19cf-41ad-b265-2073aaa2a690/preview.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
     background-position-y: 50%;
 `
 

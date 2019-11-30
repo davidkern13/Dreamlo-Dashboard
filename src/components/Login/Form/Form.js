@@ -1,24 +1,31 @@
-import React, { useCallback } from "react";
-
-import {MESSAGE} from "../../../Enums/Login/emuns";
+import React from "react";
 
 import {
     FormLogin,
+    Wrap,
     Form,
     Input,
     Label,
     Button,
-    Message
+    Message,
+    TitleTo,
+    TitleLogin
 } from './style.js';
+
+import { MESSAGE, LOGIN } from '../../../Enums/Login/emuns'
 
 /*
 * LoginForm Without state
 */
 
-export const LoginForm = ({ publicVal, privateVal, onChangePublic, onChangePrivate, onEnter, onSubmit }) =>{
+const LoginForm = ({ publicVal, privateVal, onChangePublic, onChangePrivate, onEnter, onSubmit }) =>{
 
     return (
         <FormLogin>
+            <Wrap>
+                <TitleLogin>{LOGIN}</TitleLogin>
+            </Wrap>
+
             <Form onSubmit={onSubmit}>
                 <Label>Public Code</Label>
                 <Input
@@ -40,5 +47,7 @@ export const LoginForm = ({ publicVal, privateVal, onChangePublic, onChangePriva
         </FormLogin>
     );
 }
+
+export default LoginForm;
 
 
