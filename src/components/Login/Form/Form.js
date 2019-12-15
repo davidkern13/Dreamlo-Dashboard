@@ -8,7 +8,6 @@ import {
     Label,
     Button,
     Message,
-    TitleTo,
     TitleLogin
 } from './style.js';
 

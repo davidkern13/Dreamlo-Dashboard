@@ -1,7 +1,7 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-import dreamloReducer from "./login/reducer";
-import dreamloApiReducer from "./dreamlo_api/reducer";
+import dreamloReducer from './login/reducer';
+import dreamloApiReducer from './dreamlo_api/reducer';
 
 
 const rootReducer = combineReducers({

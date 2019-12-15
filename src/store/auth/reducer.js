@@ -1,4 +1,4 @@
-import {USER_AUTH} from "../auth/enums";
+import {USER_AUTH} from '../auth/enums';
 
 let initialState = { user: [] };
 

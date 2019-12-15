@@ -1,4 +1,4 @@
-import { DREAMLO_PUBLIC_CODE, DREAMLO_PRIVATE_CODE } from "./enums";
+import { DREAMLO_PUBLIC_CODE, DREAMLO_PRIVATE_CODE } from './enums';
 
 let initialState = { public_code: null, private_code : null};
 

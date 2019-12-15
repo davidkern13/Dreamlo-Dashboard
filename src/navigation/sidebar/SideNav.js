@@ -1,23 +1,21 @@
-import React, { Component } from "react";
-import { NavLink, Link } from "react-router-dom";
-import media from "../../style/MediaQuery";
-import styled from 'styled-components';
+import React from 'react';
 
-export const SideNavigation = styled.div`
-    max-width: 255px;
-    height: 100vh;
-    flex: 1;
-    background-color:#16165D;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.12);
-`
+import {
+    SideNavigation,
+    InnerWrap
+} from './style.js';
+
+import SideLinks from '../links/SideLinks';
 
 function SideNav(){
 
-    const nav_items = ['Dashboard', 'Users', 'Leadboard'];
+    const nav_items = ['home', 'dashboard', 'leadboard'];
 
     return (
         <SideNavigation>
-
+            <InnerWrap>
+                <SideLinks>{nav_items}</SideLinks>
+            </InnerWrap>
         </SideNavigation>
     )
 }

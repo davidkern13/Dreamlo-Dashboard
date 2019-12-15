@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
 
 import { dreamloPublicCode, dreamloPrivateCode  } from "../../store/login/action";
-import { getDreamloData  } from "../../store/dreamlo_api/action";
+import { requestApi  } from "../../store/dreamlo_api/action";
+
+import LoadingSpinner from '../../loading';
 
 import {
     Wrapper
@@ -46,7 +48,7 @@ const Login = () => {
         event.preventDefault();
         dispatch(dreamloPublicCode(public_code));
         dispatch(dreamloPrivateCode(private_code));
-        dispatch(getDreamloData(dispatch));
+        dispatch(requestApi());
     };
 
     if(user){
@@ -55,7 +57,7 @@ const Login = () => {
 
     return (
         <Wrapper>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<LoadingSpinner />}>
                 <LoginDecoration />
 
                 <LoginForm
