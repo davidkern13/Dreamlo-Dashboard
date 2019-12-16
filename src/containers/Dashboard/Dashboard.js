@@ -14,7 +14,7 @@ function Dashboard(){
         <Suspense fallback={<LoadingSpinner />}>
             <LayoutContent>
                 <DashboardContent>
-                    <LoadingSpinner />
+                    Dashboard
                 </DashboardContent>
             </LayoutContent>
         </Suspense>

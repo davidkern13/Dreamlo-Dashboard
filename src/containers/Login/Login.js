@@ -21,33 +21,27 @@ const Login = () => {
     const store_content = useSelector(state => state);
     const dispatch = useDispatch();
 
-    const [public_code, setPublicCode] = useState("");
-    const [private_code, setPrivateCode] = useState("");
     const [user, setUser] = useState(false);
 
     useEffect( () => {
-        if(store_content.dreamlo_keys.private_code !== null){
+
+        let { dreamlo_keys : { private_code = null}, dreamlo_api : { status = false} } = store_content;
+
+        if(private_code !== null && status){
             setUser(true);
         }
-
     }, [store_content]);
 
     const onChangePublic = useCallback(e => {
-        setPublicCode(e.target.value);
+        dispatch(dreamloPublicCode(e.target.value));
     }, []);
 
     const onChangePrivate = useCallback(e => {
-        setPrivateCode(e.target.value);
+        dispatch(dreamloPrivateCode(e.target.value));
     }, []);
-
-    const onEnter = useCallback(() => {
-        onSubmit();
-    },[]);
 
     const onSubmit = (event) => {
         event.preventDefault();
-        dispatch(dreamloPublicCode(public_code));
-        dispatch(dreamloPrivateCode(private_code));
         dispatch(requestApi());
     };
 
@@ -61,11 +55,8 @@ const Login = () => {
                 <LoginDecoration />
 
                 <LoginForm
-                    publicVal={public_code}
-                    privateVal={private_code}
                     onChangePublic={onChangePublic}
                     onChangePrivate={onChangePrivate}
-                    onEnter={onEnter}
                     onSubmit={onSubmit}
                 />
             </Suspense>

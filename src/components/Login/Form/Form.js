@@ -17,7 +17,10 @@ import { MESSAGE, LOGIN } from '../../../Enums/Login/emuns'
 * LoginForm Without state
 */
 
-const LoginForm = ({ publicVal, privateVal, onChangePublic, onChangePrivate, onEnter, onSubmit }) =>{
+const LoginForm = ({ onChangePublic, onChangePrivate, onSubmit }) =>{
+
+    let input_pub_code;
+    let input_prt_code;
 
     return (
         <FormLogin>
@@ -31,16 +34,16 @@ const LoginForm = ({ publicVal, privateVal, onChangePublic, onChangePrivate, onE
                     type="text"
                     placeholder={`Public Code`}
                     onChange={onChangePublic}
-                    value={publicVal}
+                    ref={node => (input_pub_code = node)}
                 />
                 <Label>Private Code (It's long, get all of it!)</Label>
                 <Input
                     type="text"
                     placeholder={`Private Code`}
                     onChange={onChangePrivate}
-                    value={privateVal}
+                    ref={node_ => (input_prt_code = node_)}
                 />
-                <Button type="submit" onKeyDown={onEnter}>Go to dashboard</Button>
+                <Button type="submit" onKeyDown={onSubmit}>Go to dashboard</Button>
                 <Message>{MESSAGE}</Message>
             </Form>
         </FormLogin>

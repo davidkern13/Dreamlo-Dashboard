@@ -7,7 +7,8 @@ export default (state = initialState, action) => {
         case FETCHING_DATA:
             return {
                 ...state,
-                msg: 'Loading Data...'
+                msg: 'Loading Data...',
+                status: false
             };
 
         case DATA_FETCHED:
@@ -15,13 +16,15 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 data: action.payload,
-                msg: 'Data fetched'
+                msg: 'Data fetched',
+                status: true
             };
 
         case FETCH_ERROR:
             return {
                 ...state,
-                msg: action.payload
+                msg: action.payload,
+                status: false
             };
 
         default:
